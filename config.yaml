@@ -1,0 +1,27 @@
+llm:
+  provider: gemini            # gemini | ollama | fake | anthropic* | openai*   (*stubs)
+  model: gemini-2.5-flash
+  max_concurrency: 2
+  temperature: 0.3
+  retry: {attempts: 5, backoff_seconds: 4}   # free-tier 429s are retried with backoff
+
+tts:
+  provider: edge              # edge | piper | fake | elevenlabs*
+  voice: en-US-AndrewNeural
+  rate: "+0%"
+
+video:
+  resolution: [1920, 1080]
+  fps: 24
+  theme: dark                 # dark | light
+  subtitles: sidecar          # sidecar | burned | both | none
+
+limits:
+  max_files_read: 150
+  max_file_bytes: 60000
+  target_minutes: 15
+  chunk_tokens: 60000         # per-folder summarization batch size (approx tokens)
+
+paths:
+  output_dir: output
+  cache_dir: cache
